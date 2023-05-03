@@ -1,0 +1,9 @@
+sudo: required
+servies: 
+  - docker
+  
+before_install:
+  - docker build -t swagata-terp/docker-react Dockerfile.dev .
+
+script:
+  - docker run -e CI=true swagata-terp/docker-react npm run test
